@@ -8,14 +8,14 @@ a los usuarios leer, modificar y borrar sus datos. También existe un endpoint p
 
 // TODO#1: rellena la tabla siguiente analizando el código del proyecto
 
-| Método | Ruta | Descripción | Respuestas |
-|--------|------|-------------|------------|
-|        |      |             |            |
-|        |      |             |            |
-|        |      |             |            |
-|        |      |             |            |
-|        |      |             |            |
-|        |      |             |            |
+| Método   | Ruta              | Descripción                                         | Respuestas principales                                |
+|----------|-------------------|----------------------------------------------------|--------------------------------------------------------|
+| POST     | /api/users        | Registra un nuevo usuario                          | 201 Created, 400 Bad Request, 409 Conflict             |
+| POST     | /api/session      | Inicia sesión y devuelve cookie de sesión          | 201 Created, 401 Unauthorized                          |
+| GET      | /api/profile      | Obtiene el perfil del usuario autenticado          | 200 OK, 401 Unauthorized                               |
+| PUT      | /api/profile      | Actualiza el perfil del usuario autenticado        | 200 OK, 400 Bad Request, 401 Unauthorized, 409 Conflict|
+| DELETE   | /api/profile      | Elimina el usuario autenticado y sus tokens        | 204 No Content, 401 Unauthorized                       |
+| DELETE   | /api/session      | Cierra la sesión (elimina la cookie de sesión)     | 204 No Content, 401 Unauthorized                       |
 
 
 ## Comandos 
