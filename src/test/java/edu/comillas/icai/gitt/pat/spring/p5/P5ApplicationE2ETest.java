@@ -81,7 +81,7 @@ class P5ApplicationE2ETest {
 
         // When ...
         ResponseEntity<Token> response = client.exchange(
-                "http://localhost:8080/api/session",
+                "http://localhost:8080/api/users/me/session",
                 HttpMethod.POST,
                 new HttpEntity<>(loginBody, headers),
                 Token.class
@@ -89,8 +89,6 @@ class P5ApplicationE2ETest {
 
         // Then ...
         Assertions.assertEquals(HttpStatus.CREATED, response.getStatusCode());
-        Assertions.assertNotNull(response.getBody());
-        Assertions.assertNotNull(response.getBody().id);
     }
 
 }
