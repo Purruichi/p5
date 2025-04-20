@@ -19,4 +19,8 @@ public class Token {
     @OneToOne(cascade = CascadeType.REMOVE)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "appUser_id", nullable = false) public AppUser appUser;
+
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
+    }
 }

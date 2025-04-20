@@ -25,15 +25,14 @@ describe('Registro y login', () => {
   it('Login correcto', () => {
     cy.visit('http://localhost:8080/login.html')
 
-    // Rellenar formulario de login
     cy.get('[name="email"]').type(email)
     cy.get('[name="password"]').type(pass)
     cy.contains('Entrar').click()
 
     // Verificar redirección a perfil y datos correctos
-    cy.url().should('include', '/perfil.html')
-    cy.contains('Bienvenido ' + name)
-    cy.get('[data-test="user-email"]').should('contain', email)
+    cy.url().should('include', '/app.html')
+    cy.contains('Darse de baja')
+    cy.get('[id="email-inicio"]').should('contain', email)
   })
 
 })

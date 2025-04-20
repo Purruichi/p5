@@ -38,7 +38,8 @@ public class UserService implements UserServiceInterface {
         if (token != null) return token;
 
         token = new Token();
-        return token;
+        token.setAppUser(appUser);
+        return tokenRepository.save(token);
     }
 
     public AppUser authentication(String tokenId) {
