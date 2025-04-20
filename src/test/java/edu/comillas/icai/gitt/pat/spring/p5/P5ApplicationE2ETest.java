@@ -80,15 +80,18 @@ class P5ApplicationE2ETest {
                 "\"password\":\"" + PASS + "\"}";
 
         // When ...
-        ResponseEntity<Token> response = client.exchange(
+        ResponseEntity<String> response = client.exchange(
                 "http://localhost:8080/api/users/me/session",
                 HttpMethod.POST,
                 new HttpEntity<>(loginBody, headers),
-                Token.class
+                String.class
         );
 
         // Then ...
         Assertions.assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        String cookie = response.getHeaders().getFirst(HttpHeaders.SET_COOKIE);
+        Assertions.assertNotNull(cookie);
+        Assertions.assertTrue(cookie.contains("session="));
     }
 
 }
